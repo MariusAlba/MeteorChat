@@ -1,0 +1,46 @@
+<head>
+  <title>simple</title>
+</head>
+
+<body>
+  
+    {{> messages}}
+</body>
+
+<template name="messages">
+   <div class="container">
+       <div class="row">
+           
+        <ul>
+            {{> loginButtons}}
+            {{#each messages}}
+                {{> message}}
+                {{> resolution}}
+            {{/each}}
+            
+        </ul> 
+            <form>
+                <textarea rows="1" cols="100"></textarea>
+            </form>
+        </div>
+    </div>
+</template>
+
+<template name="message">
+    <li>
+        <div class="name">
+            {{user.username}} <span class="time">{{time}} {{Date}}</span>
+        </div>
+        <div class="content">
+        {{message}}
+        </div>
+    </li>
+</template>
+
+<template name="resolution">
+    <li>
+        {{title}}
+        <button class="delete">Remove</button>
+    </li>
+</template>
+
