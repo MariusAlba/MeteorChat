@@ -13,10 +13,10 @@ if (Meteor.isClient){
     });
     
     Template.messages.events({
-        'keypress textarea': function(e, instance) {
+        'keypress input': function(e, instance) {
             if (e.keyCode == 13) { // enter key pressed
-            var value = instance.find('textarea').value;
-            instance.find('textarea').value = '';
+            var value = instance.find('input').value;
+            instance.find('input').value = '';
             
             Messages.insert({
                 message: value,
@@ -37,7 +37,7 @@ if (Meteor.isClient){
     });
     Template.registerHelper('Date', function(date) {
   return moment(date).format('MM-DD-YYYY');
-});
+    });
     Template.resolution.events({
         'click .delete': function() {
             Messages.remove(this._id);
