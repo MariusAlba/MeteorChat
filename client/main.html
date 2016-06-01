@@ -3,43 +3,46 @@
 </head>
 
 <body>
+    <div class="container col-md-6">
     {{>messages}}
+    </div>
 </body>
 
 <template name="messages">
-    {{>loginButtons}}
+   <div class="container">
+       <h1>{{>loginButtons}}</h1>
+   </div> 
         <ul>
             {{#each messages}}
                 {{>message}}
-                {{>resolution}}
+                
             {{/each}}
             <br>
             
-<div class="col-md-6">           
+          
     <form >
         <label for="Message">Type message here</label>
         <input type="text" class="form-control" placeholder="Message">
     </form>
-    </div>
+    
     </ul>
 </template>
 
 <template name="message">
-    <li>
-        <div class="name">
-            {{user.username}} <span  class="time">{{time}} {{Date}}</span>
-        </div>
+    <ul>
+        <div class="name well">
+            <h5>{{user.username}} <span  class="time">{{time}} {{Date}}</span></h5>
         
-        <div class="content">
             {{message}}
+            {{title}}
+        <button class="delete btn btn-danger pull-right">Remove</button>
         </div>
-    </li>
+    </ul>
 </template>
 
-<template name="resolution">
+<!--<template name="resolution">
     
-        {{title}}
-        <button class="delete btn btn-danger">Remove</button>
+        
     
-</template>
+</template>-->
 

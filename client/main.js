@@ -38,7 +38,7 @@ if (Meteor.isClient){
     Template.registerHelper('Date', function(date) {
   return moment(date).format('MM-DD-YYYY');
     });
-    Template.resolution.events({
+    Template.message.events({
         'click .delete': function() {
             Messages.remove(this._id);
         }
